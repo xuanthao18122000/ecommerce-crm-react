@@ -33,29 +33,27 @@ const Login: FC = () => {
       <div
         className="grid justify-end w-full h-full"
         style={{
-          background: 'url(/bg-login.png) no-repeat center/cover',
+          background: 'url(/vuexy-login-bg.jpg) no-repeat center/cover',
         }}
       >
         <StyledCard>
           <Image
-            src="/logo.svg"
+            src="/logo.png"
             alt="Brand logo"
             preview={false}
-            width="30vh"
+            width="45vh"
             className="mb-8"
           />
           <Typography.Text className="slogan">
-            We care your pets
+            Welcome to Admin
           </Typography.Text>
-          {isForgot ? (
-            <ForgotPassword />
-          ) : (
+          {isForgot ? (<ForgotPassword />) : (
             <LoginForm setForgotTrue={setTrue} />
           )}
 
           <div className="mt-4 text-black">
             <p className="my-0">Version {import.meta.env.VITE_VERSION}</p>
-            <span>Copyright &copy; 2023 BOSSEN</span>
+            <span>E-Commerce &copy; 2023 </span>
           </div>
         </StyledCard>
       </div>

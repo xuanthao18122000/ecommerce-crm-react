@@ -31,7 +31,7 @@ const UserDetail: FC = () => {
       data && {
         ...data,
         images: {
-          avatar: data.images.avatar && data.images.avatar[360].id,
+          avatar: data?.images?.avatar && data.images.avatar[360].id,
         },
       },
     [data]

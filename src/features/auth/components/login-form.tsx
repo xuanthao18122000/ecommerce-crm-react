@@ -37,8 +37,10 @@ const LoginForm: FC<Props> = ({ setForgotTrue }) => {
           }
     );
     mutate(formValues, {
-      onSuccess: ({ token }) => {
-        login(token);
+      onSuccess: ({data}) => {
+        console.log(data);
+        
+        login(data.token);
       },
       onError: () => {
         void message.error('Email hoặc mật khẩu không đúng');
@@ -57,7 +59,7 @@ const LoginForm: FC<Props> = ({ setForgotTrue }) => {
         rules={validator(['email', 'required'])}
         className="mb-[2vh]"
       >
-        <Input prefix={<AiOutlineUser />} size="large" placeholder="Email" />
+        <Input prefix={<AiOutlineUser />} size="large" placeholder="Email" style={{maxWidth: '90%'}}/>
       </Form.Item>
 
       <Form.Item
@@ -71,9 +73,10 @@ const LoginForm: FC<Props> = ({ setForgotTrue }) => {
           prefix={<AiOutlineLock />}
           placeholder="Mật khẩu"
           size="large"
+          style={{maxWidth: '90%'}}
         />
       </Form.Item>
-      <Row className="items-center justify-between mb-2">
+      <Row className="items-center justify-between mb-2 " >
         <Form.Item name="isSaved" valuePropName="checked" className="mb-0">
           <Checkbox>
             <span className="text-black">Ghi nhớ</span>

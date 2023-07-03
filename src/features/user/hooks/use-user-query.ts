@@ -6,6 +6,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { DataUser, DataUserListQuery, UserListParams } from '../services/type';
 import userApi from '../services/user-api';
+import authApi from '@/features/auth/service/auth-api';
 
 const users = createQueryKeys('users', {
   list: (params: UserListParams) => ({
@@ -22,6 +23,7 @@ export const useUserListQuery = (
   params: UserListParams = {},
   options: QueryOptions<DataUserListQuery> = {}
 ) => {
+  
   return useQuery({
     ...users.list(params),
     keepPreviousData: true,
@@ -74,6 +76,6 @@ export const useAddUserMutation = () => {
 export const useInfoQuery = () => {
   return useQuery({
     queryKey: ['myInfo'],
-    queryFn: userApi.getInfoMe,
+    queryFn: authApi.getInfoMe,
   });
 };

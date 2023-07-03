@@ -41,8 +41,8 @@ export const filterCreateAtRange: TFilterSchema<DateRangeParams>[] = [
   },
 ];
 
-export const filterPhoneNumber: TFilterSchema<Record<'phone', string>> = {
-  name: 'phone',
+export const filterPhoneNumber: TFilterSchema<Record<'phoneNumber', string>> = {
+  name: 'phoneNumber',
   type: 'string',
   element: 'input',
   placeholder: 'Số điện thoại',

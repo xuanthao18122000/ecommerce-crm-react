@@ -35,7 +35,7 @@ const UserForm: FC<Props> = ({ data }) => {
       labelText: 'Số điện thoại',
       descriptionElement: (
         <Form.Item
-          name="phone"
+          name="phoneNumber"
           className="mb-0"
           rules={validator(['required', 'number'])}
         >

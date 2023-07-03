@@ -30,7 +30,7 @@ const columns: ColumnsType<DataUser> = [
   columnId(),
   {
     title: 'Họ và tên',
-    dataIndex: 'name',
+    dataIndex: 'fullName',
   },
   {
     title: 'Email',
@@ -38,7 +38,7 @@ const columns: ColumnsType<DataUser> = [
   },
   {
     title: 'Số điện thoại',
-    dataIndex: 'phone',
+    dataIndex: 'phoneNumber',
     align: 'center',
   },
   {
@@ -55,7 +55,7 @@ const columns: ColumnsType<DataUser> = [
 const filterSchema: TFilterSchema<UserListParams>[] = [
   filterId,
   {
-    name: 'name',
+    name: 'fullName',
     type: 'string',
     element: 'input',
     placeholder: 'Họ và tên',
@@ -70,20 +70,6 @@ const filterSchema: TFilterSchema<UserListParams>[] = [
     placeholder: 'Email',
   },
   filterPhoneNumber,
-  {
-    name: 'type',
-    type: 'number',
-    element: 'select',
-    placeholder: 'Chức vụ',
-    fieldProps: {
-      options: [
-        {
-          value: 1,
-          label: 'Admin',
-        },
-      ],
-    },
-  },
   filterStatus(USER_STATUS_LIST),
   ...filterCreateAtRange,
   ...FILTER_SCHEMA_PAGE_LIST,

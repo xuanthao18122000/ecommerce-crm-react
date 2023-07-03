@@ -3,14 +3,14 @@ import { DateRangeParams, ImageData, ListData, PageParams } from '@/ts/types';
 export type DataUser = {
   id: number;
   createdAt: string;
-  name: string;
+  fullName: string;
   email: string;
-  phone: string;
+  phoneNumber: string;
   address: string;
   gender: number;
   status: number;
   type: number;
-  images: {
+  images?: {
     avatar?: ImageData;
   };
 };
@@ -18,11 +18,11 @@ export type DataUser = {
 export type UserListParams = PageParams &
   DateRangeParams &
   Partial<
-    Pick<DataUser, 'id' | 'name' | 'status' | 'email' | 'type' | 'phone'>
+    Pick<DataUser, 'id' | 'fullName' | 'status' | 'email' | 'phoneNumber'>
   >;
 
 export type BodyUpdateUser = Partial<
-  Pick<DataUser, 'name' | 'phone' | 'type' | 'email' | 'status' | 'address'> & {
+  Pick<DataUser, 'fullName' | 'phoneNumber' | 'email' | 'status' | 'address'> & {
     password: string;
     images: {
       avatar?: string;

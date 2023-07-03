@@ -51,7 +51,7 @@ const UserInfo = () => {
     >
       <Space className="cursor-pointer">
         <Avatar size="small" icon={<AiOutlineUser />} />
-        <Typography.Text>{user?.name}</Typography.Text>
+        <Typography.Text>{user?.fullName}</Typography.Text>
         <AiOutlineDown />
       </Space>
     </Dropdown>

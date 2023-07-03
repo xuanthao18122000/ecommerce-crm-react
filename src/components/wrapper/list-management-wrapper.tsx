@@ -76,12 +76,12 @@ const ListManagementWrapper = <
       >
         <CustomTable
           isLoading={isFetching}
-          dataSource={data?.data}
+          dataSource={data?.data.list}
           onChange={onPageChange}
           pagination={{
             current: filter.page as number,
             pageSize: filter.limit as number,
-            total: data?.total,
+            total: data?.data.total,
           }}
           {...{
             name,

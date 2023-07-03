@@ -4,5 +4,8 @@ export type LoginValues = {
 };
 
 export type ResponseLogin = {
-  token: string;
+  data: {
+    user: object;
+    token: string;
+  }
 };

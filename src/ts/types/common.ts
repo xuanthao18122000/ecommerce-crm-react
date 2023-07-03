@@ -54,6 +54,13 @@ type NumericValues<T> = {
 export type NumberEnumUnion<T> = NumericValues<T>[keyof NumericValues<T>];
 
 export type ListData<T> = {
-  total: number;
-  data: T[];
+  code: number,
+  data: {
+    list: T[],
+    page: number,
+    perPage: number,
+    total: number
+  }
+  msg: string;
+  success: boolean;
 };

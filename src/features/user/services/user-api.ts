@@ -6,7 +6,7 @@ import {
   UserListParams,
 } from './type';
 
-const baseUrl = 'user';
+const baseUrl = 'users';
 
 const userApi = {
   getList: (params: UserListParams): Promise<DataUserListQuery> =>
@@ -20,7 +20,7 @@ const userApi = {
 
   add: (data: BodyUpdateUser) => axiosClient.post(baseUrl, data),
 
-  getInfoMe: (): Promise<DataUser> => axiosClient.get(`${baseUrl}/me`),
+  
 };
 
 export default userApi;

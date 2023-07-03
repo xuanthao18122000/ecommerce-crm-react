@@ -37,7 +37,7 @@ const HeaderComponent = () => {
               className="mr-8"
               width={68}
               preview={false}
-              src="/logo.svg"
+              src="/logo.png"
               alt="Brand logo"
             />
             <Typography className="text-lg font-bold">ADMIN PANEL</Typography>
