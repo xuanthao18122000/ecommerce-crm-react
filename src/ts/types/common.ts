@@ -64,3 +64,10 @@ export type ListData<T> = {
   msg: string;
   success: boolean;
 };
+
+export type DetailData<T> = {
+  code: number,
+  data: object,
+  msg: string;
+  success: boolean;
+};

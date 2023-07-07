@@ -33,6 +33,13 @@ export const columnCreateAt = <T extends object>(): ColumnType<T> => ({
   render: (value?: string) => formatDateToString(value, 'DD/MM/YYYY HH:mm:ss'),
 });
 
+export const columnUpdateAt = <T extends object>(): ColumnType<T> => ({
+  title: 'Thời cập nhật',
+  dataIndex: 'updatedAt',
+  align: 'center',
+  render: (value?: string) => formatDateToString(value, 'DD/MM/YYYY HH:mm:ss'),
+});
+
 export const columnStatus = <T extends { status: number }>(
   statusList?: Status[]
 ): ColumnType<T> => ({

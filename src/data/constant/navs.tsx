@@ -7,15 +7,20 @@ import { USER_NAME } from '@/features/user';
 import PrivateRoute from '@/routes/private-route';
 import { capitalizeFirstLetter } from '@/utils';
 import { Link } from 'react-router-dom';
-import { DASHBOARD_PATH, USER_PATH } from './path';
+import { CATEGORY_PATH, DASHBOARD_PATH, USER_PATH } from './path';
 import { TypeNavs, TypeRoutes } from './type-navs';
 import { BsPostcard } from 'react-icons/bs';
+import { CATEGORY_NAME } from '@/features/category/constant';
 
 const Dashboard = lazy(() => import('@/pages/dashboard'));
 
 const Users = lazy(() => import('@/pages/users'));
 const UserDetail = lazy(() => import('@/pages/users/[id]'));
 const UserAdd = lazy(() => import('@/pages/users/add'));
+
+const Categories = lazy(() => import('@/pages/categories'));
+const CategoryDetail = lazy(() => import('@/pages/categories/[id]'));
+const CategoryAdd = lazy(() => import('@/pages/categories/add'));
 
 const PostIntroductionList = lazy(() => import('@/pages/posts/introduction'));
 const PostIntroductionDetail = lazy(
@@ -44,6 +49,22 @@ const navs: TypeNavs[] = [
       {
         key: '/add',
         element: <UserAdd />,
+      },
+    ],
+  },
+  {
+    key: CATEGORY_PATH,
+    label: `quản lý ${CATEGORY_NAME}`,
+    icon: <BsPostcard size={18} />,
+    element: <Categories />,
+    children: [
+      {
+        key: '/:id',
+        element: <CategoryDetail />,
+      },
+      {
+        key: '/add',
+        element: <CategoryAdd />,
       },
     ],
   },
