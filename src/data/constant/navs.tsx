@@ -7,10 +7,15 @@ import { USER_NAME } from '@/features/user';
 import PrivateRoute from '@/routes/private-route';
 import { capitalizeFirstLetter } from '@/utils';
 import { Link } from 'react-router-dom';
-import { CATEGORY_PATH, DASHBOARD_PATH, USER_PATH } from './path';
+import { CATEGORY_PATH, DASHBOARD_PATH, ORDER_PATH, PRODUCT_PATH, USER_PATH } from './path';
 import { TypeNavs, TypeRoutes } from './type-navs';
 import { BsPostcard } from 'react-icons/bs';
 import { CATEGORY_NAME } from '@/features/category/constant';
+import { ORDER_NAME } from '@/features/order';
+import Orders from '@/pages/orders';
+import Products from '@/pages/products';
+import ProductAdd from '@/pages/products/add';
+import ProductDetail from '@/pages/products/[id]';
 
 const Dashboard = lazy(() => import('@/pages/dashboard'));
 
@@ -22,12 +27,7 @@ const Categories = lazy(() => import('@/pages/categories'));
 const CategoryDetail = lazy(() => import('@/pages/categories/[id]'));
 const CategoryAdd = lazy(() => import('@/pages/categories/add'));
 
-const PostIntroductionList = lazy(() => import('@/pages/posts/introduction'));
-const PostIntroductionDetail = lazy(
-  () => import('@/pages/posts/introduction/[id]')
-);
 
-const PostLibraryList = lazy(() => import('@/pages/posts/library'));
 
 const navs: TypeNavs[] = [
   {
@@ -37,24 +37,24 @@ const navs: TypeNavs[] = [
     element: <Dashboard />,
   },
   {
-    key: USER_PATH,
-    label: `quản lý ${USER_NAME}`,
-    icon: <AiOutlineUser size={18} />,
-    element: <Users />,
+    key: PRODUCT_PATH,
+    label: `Quản lý sản phẩm`,
+    icon: <BsPostcard size={18} />,
+    element: <Products />,
     children: [
       {
         key: '/:id',
-        element: <UserDetail />,
+        element: <ProductDetail />,
       },
       {
         key: '/add',
-        element: <UserAdd />,
+        element: <ProductAdd />,
       },
     ],
   },
   {
     key: CATEGORY_PATH,
-    label: `quản lý ${CATEGORY_NAME}`,
+    label: `Quản lý ${CATEGORY_NAME}`,
     icon: <BsPostcard size={18} />,
     element: <Categories />,
     children: [
@@ -69,29 +69,46 @@ const navs: TypeNavs[] = [
     ],
   },
   {
-    key: POST_PATH.MAIN,
-    label: POST_NAME.MAIN,
+    key: ORDER_PATH,
+    label: `Quản lý ${ORDER_NAME}`,
     icon: <BsPostcard size={18} />,
+    element: <Orders />,
+    children: [
+      // {
+      //   key: '/:id',
+      //   element: <OrderDetail />,
+      // },
+    ],
+  },
+  {
+    key: USER_PATH,
+    label: `Quản lý ${USER_NAME}`,
+    icon: <AiOutlineUser size={18} />,
+    element: <Users />,
     children: [
       {
-        key: '/introductions',
-        label: POST_NAME[EnumPostCategoryType['INTRODUCTION']],
-        element: <PostIntroductionList />,
-        children: [
-          {
-            key: '/:id',
-            element: <PostIntroductionDetail />,
-          },
-        ],
+        key: '/:id',
+        element: <UserDetail />,
       },
-
       {
-        key: '/libraries',
-        label: POST_NAME[EnumPostCategoryType['LIBRARY']],
-        element: <PostLibraryList />,
+        key: '/add',
+        element: <UserAdd />,
       },
     ],
   },
+  {
+    key: "KM",
+    label: 'Quản lý khuyến mãi',
+    icon: <AiOutlineDashboard size={18} />,
+
+  },
+  {
+    key: "KM",
+    label: 'Quản lý thông báo',
+    icon: <AiOutlineDashboard size={18} />,
+
+  },
+
 ];
 
 const getRoutes = (arr: TypeRoutes[], nav: TypeNavs, basePath = '') => {

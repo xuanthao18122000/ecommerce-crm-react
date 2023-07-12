@@ -6,7 +6,7 @@ import {
   DataCategoryListQuery
 } from './type';
 
-const baseUrl = 'categories';
+const baseUrl = import.meta.env.VITE_API_PRODUCT_URL + 'categories';
 
 const categoryApi = {
   getList: (params: CategoryListParams): Promise<DataCategoryListQuery> =>

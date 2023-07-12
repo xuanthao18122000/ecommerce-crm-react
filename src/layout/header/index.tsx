@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { COLOR, DASHBOARD_PATH } from '@/data/constant';
 import { useThemeStore } from '@/hooks';
 import UserInfo from './user-info';
+import Message from './message';
 
 const { Header } = Layout;
 
@@ -44,6 +45,7 @@ const HeaderComponent = () => {
           </Space>
         </Link>
         <Space>
+          <Message />
           <Tooltip
             title={`Chuyển sang chế độ ban ${
               theme === 'dark' ? 'ngày' : 'đêm'

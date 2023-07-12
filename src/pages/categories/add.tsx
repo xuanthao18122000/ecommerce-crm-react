@@ -1,5 +1,5 @@
 import { BreadcrumbsWrapper, MainAction } from '@/components';
-import { USER_PATH } from '@/data/constant';
+import { CATEGORY_PATH } from '@/data/constant';
 import {
   BodyUpdateCategory,
   CATEGORY_BREADCRUMBS,
@@ -11,7 +11,7 @@ import { Button, Card, Form } from 'antd';
 import { FC, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const UserAdd: FC = () => {
+const CategoryAdd: FC = () => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const { mutate, isLoading } = useAddCategoryMutation();
@@ -19,10 +19,6 @@ const UserAdd: FC = () => {
   const handleFinish = (values: BodyUpdateCategory) => {
     mutate(values);
   };
-
-  const setDefaultPassword = useCallback(() => {
-    form.setFieldValue('password', '123456a@');
-  }, [form]);
 
   return (
     <BreadcrumbsWrapper breadcrumbs={CATEGORY_BREADCRUMBS.add()}>
@@ -34,7 +30,7 @@ const UserAdd: FC = () => {
           isAddType
           cancelText="Trở về danh sách"
           onOk={form.submit}
-          onCancel={() => navigate(USER_PATH)}
+          onCancel={() => navigate(CATEGORY_PATH)}
           isOkLoading={isLoading}
           isCancelDisabled={isLoading}
         />
@@ -43,4 +39,4 @@ const UserAdd: FC = () => {
   );
 };
 
-export default UserAdd;
+export default CategoryAdd;
