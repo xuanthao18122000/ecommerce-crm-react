@@ -1,13 +1,12 @@
 import { cloneDeep } from 'lodash';
 import { lazy } from 'react';
 import { AiOutlineDashboard, AiOutlineUser } from 'react-icons/ai';
-
-import { EnumPostCategoryType, POST_NAME, POST_PATH } from '@/features/post';
+// import { EnumPostCategoryType, POST_NAME, POST_PATH } from '@/features/post';
 import { USER_NAME } from '@/features/user';
 import PrivateRoute from '@/routes/private-route';
 import { capitalizeFirstLetter } from '@/utils';
 import { Link } from 'react-router-dom';
-import { CATEGORY_PATH, DASHBOARD_PATH, ORDER_PATH, PRODUCT_PATH, USER_PATH } from './path';
+import { CATEGORY_PATH, DASHBOARD_PATH, EMPLOYEE_PATH, ORDER_PATH, PRODUCT_PATH, USER_PATH } from './path';
 import { TypeNavs, TypeRoutes } from './type-navs';
 import { BsPostcard } from 'react-icons/bs';
 import { CATEGORY_NAME } from '@/features/category/constant';
@@ -16,12 +15,17 @@ import Orders from '@/pages/orders';
 import Products from '@/pages/products';
 import ProductAdd from '@/pages/products/add';
 import ProductDetail from '@/pages/products/[id]';
+import { EMPLOYEE_NAME } from '@/features/employee';
 
 const Dashboard = lazy(() => import('@/pages/dashboard'));
 
 const Users = lazy(() => import('@/pages/users'));
 const UserDetail = lazy(() => import('@/pages/users/[id]'));
 const UserAdd = lazy(() => import('@/pages/users/add'));
+
+const Employees = lazy(() => import('@/pages/employees'));
+const EmployeeDetail = lazy(() => import('@/pages/employees/[id]'));
+const EmployeeAdd = lazy(() => import('@/pages/employees/add'));
 
 const Categories = lazy(() => import('@/pages/categories'));
 const CategoryDetail = lazy(() => import('@/pages/categories/[id]'));
@@ -93,6 +97,22 @@ const navs: TypeNavs[] = [
       {
         key: '/add',
         element: <UserAdd />,
+      },
+    ],
+  },
+  {
+    key: EMPLOYEE_PATH,
+    label: `Quản lý ${EMPLOYEE_NAME}`,
+    icon: <AiOutlineUser size={18} />,
+    element: <Employees />,
+    children: [
+      {
+        key: '/:id',
+        element: <EmployeeDetail />,
+      },
+      {
+        key: '/add',
+        element: <EmployeeAdd />,
       },
     ],
   },
