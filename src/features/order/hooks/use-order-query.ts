@@ -31,6 +31,21 @@ export const useOrderListQuery = (
   });
 };
 
+export const useUpdateOrderMutation = (id: number) => {
+  const { message } = useApp();
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: orderApi.update(id),
+    onSuccess: () => {
+      void message.success('Cập nhật thông tin người dùng thành công');
+      void queryClient.invalidateQueries(orders.detail(id).queryKey);
+    },
+    onError: () => {
+      void message.error('Cập nhật người dùng thất bại');
+    },
+  });
+};
+
 export const useOrderDetailQuery = (
   id: number,
   options: QueryOptions<DetailOrder> = {}

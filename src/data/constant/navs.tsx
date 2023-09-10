@@ -16,6 +16,7 @@ import Products from '@/pages/products';
 import ProductAdd from '@/pages/products/add';
 import ProductDetail from '@/pages/products/[id]';
 import { EMPLOYEE_NAME } from '@/features/employee';
+import OrderDetail from '@/pages/orders/[id]';
 
 const Dashboard = lazy(() => import('@/pages/dashboard'));
 
@@ -78,10 +79,10 @@ const navs: TypeNavs[] = [
     icon: <BsPostcard size={18} />,
     element: <Orders />,
     children: [
-      // {
-      //   key: '/:id',
-      //   element: <OrderDetail />,
-      // },
+      {
+        key: '/:id',
+        element: <OrderDetail />,
+      },
     ],
   },
   {

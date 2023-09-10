@@ -8,7 +8,7 @@ import {
 } from './type';
 
 const BASE_URL: string = import.meta.env.VITE_API_USER_URL
-const baseUrl = BASE_URL+ 'employees';
+const baseUrl = BASE_URL+ 'admin/employees';
 
 const employeeApi = {
   getList: (params: EmployeeListParams): Promise<DataEmployeeListQuery> =>

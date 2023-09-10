@@ -14,6 +14,12 @@ const orderApi = {
 
   getDetail: (id: number): Promise<DataOrder> =>
     axiosClient.get(`${baseUrl}/${id}`),
+
+  update: (id: number) => (data: BodyUpdateOrder) =>
+  axiosClient.put(`${baseUrl}/${id}`, data),
+
+  add: (data: BodyUpdateOrder) => 
+    axiosClient.post(baseUrl, data),
 };
 
 export default orderApi;

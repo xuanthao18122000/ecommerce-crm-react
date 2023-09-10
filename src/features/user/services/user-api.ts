@@ -6,7 +6,7 @@ import {
   UserListParams,
 } from './type';
 
-const baseUrl = import.meta.env.VITE_API_USER_URL + 'users';
+const baseUrl = import.meta.env.VITE_API_USER_URL + 'admin/users';
 
 const userApi = {
   getList: (params: UserListParams): Promise<DataUserListQuery> =>
