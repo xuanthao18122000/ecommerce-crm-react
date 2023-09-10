@@ -1,6 +1,6 @@
 import { cloneDeep } from 'lodash';
 import { lazy } from 'react';
-import { AiOutlineDashboard, AiOutlineUser } from 'react-icons/ai';
+import { AiOutlineDashboard, AiOutlineFund, AiOutlineUser,  } from 'react-icons/ai';
 // import { EnumPostCategoryType, POST_NAME, POST_PATH } from '@/features/post';
 import { USER_NAME } from '@/features/user';
 import PrivateRoute from '@/routes/private-route';
@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom';
 import { CATEGORY_PATH, DASHBOARD_PATH, EMPLOYEE_PATH, ORDER_PATH, PRODUCT_PATH, USER_PATH } from './path';
 import { TypeNavs, TypeRoutes } from './type-navs';
 import { BsPostcard } from 'react-icons/bs';
+import { GiNotebook } from 'react-icons/gi';
+import { FiUsers } from 'react-icons/fi';
 import { CATEGORY_NAME } from '@/features/category/constant';
 import { ORDER_NAME } from '@/features/order';
 import Orders from '@/pages/orders';
@@ -17,6 +19,7 @@ import ProductAdd from '@/pages/products/add';
 import ProductDetail from '@/pages/products/[id]';
 import { EMPLOYEE_NAME } from '@/features/employee';
 import OrderDetail from '@/pages/orders/[id]';
+import { MdNotificationsActive, MdOutlineDiscount } from 'react-icons/md';
 
 const Dashboard = lazy(() => import('@/pages/dashboard'));
 
@@ -44,7 +47,7 @@ const navs: TypeNavs[] = [
   {
     key: PRODUCT_PATH,
     label: `Quản lý sản phẩm`,
-    icon: <BsPostcard size={18} />,
+    icon: <AiOutlineFund size={18} />,
     element: <Products />,
     children: [
       {
@@ -76,7 +79,7 @@ const navs: TypeNavs[] = [
   {
     key: ORDER_PATH,
     label: `Quản lý ${ORDER_NAME}`,
-    icon: <BsPostcard size={18} />,
+    icon: <GiNotebook size={18} />,
     element: <Orders />,
     children: [
       {
@@ -104,7 +107,7 @@ const navs: TypeNavs[] = [
   {
     key: EMPLOYEE_PATH,
     label: `Quản lý ${EMPLOYEE_NAME}`,
-    icon: <AiOutlineUser size={18} />,
+    icon: <FiUsers size={18} />,
     element: <Employees />,
     children: [
       {
@@ -120,13 +123,13 @@ const navs: TypeNavs[] = [
   {
     key: "KM",
     label: 'Quản lý khuyến mãi',
-    icon: <AiOutlineDashboard size={18} />,
+    icon: <MdOutlineDiscount size={18} />,
 
   },
   {
     key: "KM",
     label: 'Quản lý thông báo',
-    icon: <AiOutlineDashboard size={18} />,
+    icon: <MdNotificationsActive size={18} />,
 
   },
 

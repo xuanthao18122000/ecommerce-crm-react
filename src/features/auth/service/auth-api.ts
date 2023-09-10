@@ -2,7 +2,7 @@ import axiosClient from '@/apis/axios-client';
 import { LoginValues, ResponseLogin } from './type';
 import { DataUser } from '@/features/user';
 
-const baseUrl = import.meta.env.VITE_API_USER_URL + 'auth';
+const baseUrl = import.meta.env.VITE_API_USER_URL + 'admin/auth';
 
 const authApi = {
   login: (data: LoginValues): Promise<ResponseLogin> =>
